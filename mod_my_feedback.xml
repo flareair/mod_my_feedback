@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.0.0" method="install">
+  <name>mod_my_feedback</name>
+  <author>flareair</author>
+  <creationDate>20.10.2014</creationDate>
+  <copyright>Copyright (C) 2014 All rights reserved.</copyright>
+  <license>GNU General Public License</license>
+  <authorEmail>admin@myemail.ru</authorEmail>
+  <version>3.0.0</version>
+  <description>MOD_MY_FEEDBACK_XML_DESCRIPTION</description>
+  <files>
+    <filename module="mod_my_feedback">mod_my_feedback.php</filename>
+    <filename>index.html</filename>   
+    <filename>mod_my_feedback.xml</filename>
+    <filename>helper.php</filename>
+    <filename>script.js</filename>
+    <folder>tmpl</folder>
+  </files>
+</extension>
