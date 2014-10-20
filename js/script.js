@@ -13,16 +13,16 @@
         'data': data
       };
       $.ajax({
-        type   : 'POST',
-        data   : request,
+        type : 'POST',
+        data : request,
         success: function (response) {
-          console.log(request);
+          // console.log(request);
           console.log(response);
           console.log(data);
           $frm.fadeOut('slow', function() {
-            $frm.parent().html('<p>Спасибо за Ваше сообщение!</p>')
+            $frm.parent().html('<p>Принято!</p>');
+            $('.formDebug').load(document.URL+' .formDebug');
           });
-          
         }
       });
       return false;

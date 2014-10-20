@@ -6,11 +6,13 @@ class ModMyFeedbackHelper
 {
   public static function getAjax()
   {
+    $data = ModMyFeedbackHelper::getData();
+    return $data[1];
+  }
+  public static function getData()
+  {
     $input = JFactory::getApplication()->input;
-    $firstname  = $input->getString('firstname');
-    $lastname  = $input->getString('lastname');
     $data = $input->getString('data');
-    $formData = json_decode($data);
-    return  $formData;
+    return json_decode($data, true);
   }
 }
