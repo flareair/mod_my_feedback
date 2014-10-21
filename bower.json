@@ -1,0 +1,24 @@
+{
+  "name": "mod_my_feedback",
+  "version": "0.0.1",
+  "homepage": "https://github.com/flareair/mod_my_feedback",
+  "authors": [
+    "flareair <flareair0@gmail.com>"
+  ],
+  "description": "joomla forms",
+  "keywords": [
+    "joomla"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrapvalidator": "~0.5.2"
+  }
+}
