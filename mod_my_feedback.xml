@@ -13,7 +13,11 @@
     <filename>index.html</filename>   
     <filename>mod_my_feedback.xml</filename>
     <filename>helper.php</filename>
-    <filename>script.js</filename>
+    <filename>README.md</filename>
+    <filename>bower.json</filename>
+    <filename>package.json</filename>
+    <filename>.gitignore</filename>
     <folder>tmpl</folder>
+    <folder>js</folder>
   </files>
 </extension>
