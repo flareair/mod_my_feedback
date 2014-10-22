@@ -1,5 +1,25 @@
 (function ($) {
   $(document).ready(function() {
+
+    // generate random numbers for captcha
+
+    function randomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    // gemerate captcha equation
+
+    function generateCaptcha() {
+      $('.captchaGeneratedEq').html([randomNumber(1, 50), '+', randomNumber(10, 50), '='].join(' '));
+    }
+
+    generateCaptcha();
+
+    $('.captchaRefreshEq').click(function() {
+      generateCaptcha();
+    });
+
+
     $('.myFeedbackForm > form').bootstrapValidator({
       // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
       feedbackIcons: {
@@ -16,11 +36,11 @@
             },
             stringLength: {
                 min: 4,
-                max: 20,
+                max: 40
                 // message: 'The username must be more than 6 and less than 30 characters long'
             },
             regexp: {
-                regexp: /^[a-zA-Z0-9]+$/,
+                regexp: /^[a-zA-Z0-9a-яА-Я ]+$/,
                 // message: 'The username can only consist of alphabetical and number'
             },
             // different: {
@@ -36,6 +56,30 @@
             },
             emailAddress: {
                 // message: 'The email address is not a valid'
+            }
+          }
+        },
+        message: {
+          validators: {
+            notEmpty: {
+              
+            },
+            stringLength: {
+              min: 4,
+              max: 300
+            },
+          }
+        },
+        captcha: {
+          feedbackIcons: false,
+          validators: {
+            callback: {
+              message: 'Вычислено неправильно',
+              callback: function(value, validator, $field) {
+                var items = $('.captchaGeneratedEq').html().split(' ');
+                var sum   = parseInt(items[0]) + parseInt(items[2]);
+                return value == sum;
+              }
             }
           }
         }
@@ -59,13 +103,17 @@
           console.log(response);
           console.log(data);
           $frm.fadeOut('slow', function() {
-            $frm.parent().html('<p>Ваши данные отправлены!</p>');
+            $frm.parent().html(response.data);
           });
         }
       });
       return false;
 
+    })
+    .on('error.form.bv', function(e) {
+      generateCaptcha();
     });
+
   });
 
-})(jQuery)
+})(jQuery);

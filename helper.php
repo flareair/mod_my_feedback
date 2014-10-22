@@ -7,7 +7,7 @@ class ModMyFeedbackHelper
   public static function getAjax()
   {
     $data = ModMyFeedbackHelper::getData();
-    return json_encode($data);
+    return $data;
   }
   public static function getData()
   {
