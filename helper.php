@@ -7,7 +7,7 @@ class ModMyFeedbackHelper
   public static function getAjax()
   {
     $data = ModMyFeedbackHelper::getData();
-    return $data;
+    return ModMyFeedbackHelper::sendEmail($data);
   }
   public static function getData()
   {
@@ -17,6 +17,10 @@ class ModMyFeedbackHelper
   }
   public static function sendEmail($data)
   {
-    // TODO: send email static method
+    $letter = '';
+    foreach ($data as $row) {
+      $letter .= '<p>' . $row['name'] . ': ' . $row['value'] . '</p>';
+    }
+    return $letter;
   }
 }
