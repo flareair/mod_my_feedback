@@ -35,4 +35,7 @@ defined('_JEXEC') or die;
       <input type="submit" class="btn btn-primary myFormButton">
     </div>
   </form>
+  <div class="errors">
+    
+  </div>
 </div>

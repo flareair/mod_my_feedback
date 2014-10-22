@@ -40,7 +40,7 @@
                 // message: 'The username must be more than 6 and less than 30 characters long'
             },
             regexp: {
-                regexp: /^[a-zA-Z0-9a-яА-Я ]+$/,
+                regexp: /^[a-zA-Za-яА-Я ]+$/,
                 // message: 'The username can only consist of alphabetical and number'
             },
             // different: {
@@ -102,9 +102,14 @@
           // console.log(request);
           console.log(response);
           console.log(data);
-          $frm.fadeOut('slow', function() {
-            $frm.parent().html(response.data);
-          });
+          if (response.data == 'ok') {
+            $frm.fadeOut('slow', function() {
+              $frm.parent().html('Форма отправлена');
+            });    
+          }
+          else {
+            $frm.siblings('.errors').append('<div class="alert alert-danger">'+ response.data +'</div>');
+          }
         }
       });
       return false;

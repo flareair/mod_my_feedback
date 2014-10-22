@@ -10,8 +10,8 @@
   <description>Simple form module for Joomla 3</description>
   <files>
     <filename module="mod_my_feedback">mod_my_feedback.php</filename>
-    <filename>index.html</filename>   
     <filename>mod_my_feedback.xml</filename>
+    <filename>index.html</filename>
     <filename>helper.php</filename>
     <filename>README.md</filename>
     <filename>bower.json</filename>
@@ -20,4 +20,16 @@
     <folder>tmpl</folder>
     <folder>js</folder>
   </files>
+  <config>
+    <fields name="params">
+      <fieldset name="basic">
+          <field
+            name="mailto"
+            type="text"
+            default="admin@admin.com"
+            label="Send to"
+            description="Send to" />
+      </fieldset>
+    </fields>
+  </config>
 </extension>
